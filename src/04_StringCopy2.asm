@@ -1,11 +1,16 @@
+; =================
+; 학번 : 21011759
+; 이름 : 오재오
+;
+; DS:SI를 통해 string1을 포인팅하고, ES:DI를 사용해서 string2를 포인팅해 
+; string1의 문자열을 string2로 옮기는 코드
+; String Copy 1과 다르게 CODE 영역에 해당 변수들이 존재하는 차이점이 있다
+; =================
 .MODEL SMALL
 .STACK
 .DATA
 .CODE
 
-; 제대로 동작하지 않을 오류 코드. @data영역에 있어야 할 문자열이 .CODE 세그먼트로 넘어왔다.
-; si와 di는 그 인덱스를 전달했으나, 세그먼트 레지스터인 ds와 es가 CODE세그먼트를 겨눌 수 없어
-; 제대로 된 복사가 이루어지지 않게 되는 버그 예제
 MAIN PROC
     mov ax, @data    ;data영역 세그먼트 ax로 당겨와서
     mov ds, ax      ;ds로 넣기

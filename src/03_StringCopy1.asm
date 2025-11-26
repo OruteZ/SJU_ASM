@@ -1,13 +1,17 @@
+; =================
+; 학번 : 21011759
+; 이름 : 오재오
+;
+; DS:SI를 통해 string1을 포인팅하고, ES:DI를 사용해서 string2를 포인팅해 
+; string1의 문자열을 string2로 옮기는 코드
+; =================
 .MODEL SMALL
 .STACK
 .DATA
 STRING1 DB "string copy", "$"
 STRING2 DB '?'
 
-
 .CODE
-; DS:SI를 통해 string1을 포인팅하고, ES:DI를 사용해서 string2를 포인팅해 
-; string1의 문자열을 string2로 옮기는 코드
 MAIN    PROC
     MOV AX, @DATA   ; DATA의 시작지점AX로 이동
     MOV DS, AX      ; DS로 옮겨서 STRING 시작지점 포인팅
