@@ -3,13 +3,13 @@
 ; 이름 : 오재오
 ;
 ; 0으로 끝나는 문자열을
-; INT 21h / AH=02h(문자 1개 출력)로 한 글자씩 출력하는 코드
+; 02H 로 한 글자씩 출력하는 코드
 ; =================
 
 .MODEL SMALL
 .STACK
 .DATA
-    message DB "Hello, World!", 0     ; 0(널)로 문자열 끝을 표시
+    message DB "Hello, World!", 0     ; NULL로 문자열 끝을 표시
 
 .CODE
 MAIN PROC
@@ -26,7 +26,7 @@ MAIN_LOOP:
     add si, cx                       ; SI = message + CX (현재 문자 위치)
     add cx, 1                        ; cx++
 
-    ; DOS 출력: AH=02h, DL=출력할 문자
+    ; AH =02h <- 문자 출력해라, DL=출력할 문자
     mov ah, 02h
     mov dl, [si]                   
     int 21h                        
@@ -35,7 +35,7 @@ MAIN_LOOP:
     cmp dl, 0
     jne main_loop
 
-    ; 프로그램 종료 (권장: AL=00으로 종료코드까지 명시)
+    ; 프로그램 종료 
     mov ax, 4C00h
     int 21h
 
