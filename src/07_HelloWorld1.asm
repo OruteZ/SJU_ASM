@@ -12,51 +12,51 @@
 .DATA               
 .CODE
 
-main PROC
-    MOV AH, 02h     ; 02h = DL 레지스터 값 출력
+MAIN PROC
+    mov ah, 02h     ; 02h = DL 레지스터 값 출력
 
     ; "Hello, World!"
-    MOV DL, 48h     ; 'H' (0x48)
-    INT 21h
+    mov dl, 48h     ; 'H' 
+    int 21h
 
-    MOV DL, 65h     ; 'e' (0x65)
-    INT 21h
+    mov dl, 65h     ; 'e' 
+    int 21h
 
-    MOV DL, 6Ch     ; 'l' (0x6C)
-    INT 21h
+    mov dl, 6Ch     ; 'l' 
+    int 21h
 
-    MOV DL, 6Ch     ; 'l' (0x6C)
-    INT 21h
+    mov dl, 6Ch     ; 'l'
+    int 21h
 
-    MOV DL, 6Fh     ; 'o' (0x6F)
-    INT 21h
+    mov dl, 6Fh     ; 'o' 
+    int 21h
 
-    MOV DL, 2Ch     ; ',' (0x2C)
-    INT 21h
+    mov dl, 2Ch     ; ',' 
+    int 21h
 
-    MOV DL, 20h     ; ' ' (0x20)
-    INT 21h
+    mov dl, 20h     ; ' ' 
+    int 21h
 
-    MOV DL, 57h     ; 'W' (0x57)
-    INT 21h
+    mov dl, 57h     ; 'W' 
+    int 21h
 
-    MOV DL, 6Fh     ; 'o' (0x6F)
-    INT 21h
+    mov dl, 6Fh     ; 'o' 
+    int 21h
 
-    MOV DL, 72h     ; 'r' (0x72)
-    INT 21h
+    mov dl, 72h     ; 'r' 
+    int 21h
 
-    MOV DL, 6Ch     ; 'l' (0x6C)
-    INT 21h
+    mov dl, 6Ch     ; 'l' 
+    int 21h
 
-    MOV DL, 64h     ; 'd' (0x64)
-    INT 21h
+    mov dl, 64h     ; 'd' 
+    int 21h
 
-    MOV DL, 21h     ; '!' (0x21)
-    INT 21h
+    mov dl, 21h     ; '!'
+    int 21h
 
-    MOV AH, 4Ch
-    INT 21h
+    mov ah, 4Ch
+    int 21h
 
-main ENDP
-END main
+MAIN ENDP
+END MAIN

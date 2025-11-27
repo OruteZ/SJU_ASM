@@ -26,10 +26,10 @@ MAIN PROC
     mov dl, 'h'
     int 21h
 
-    mov dl, 0Ah          ; Line Feed: 다음 줄로만 이동(현재 column 유지)
+    mov dl, 0Ah          ; 다음 줄로만 이동(현재 x좌표 유지)
     int 21h
 
-    ; 2) "Jae" (이전 줄의 끝 column에서 시작 -> 자연스럽게 오른쪽으로 밀림)
+    ; 2) "Jae" 
     mov dl, 'J'
     int 21h
     mov dl, 'a'
