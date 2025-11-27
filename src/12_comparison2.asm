@@ -11,17 +11,17 @@
 .DATA
 .CODE
 
-main PROC
+MAIN PROC
     mov ax, @data
     mov ds, ax
 
     ; 비교할 값 준비 (원본: 99 vs 1)
-    mov bl, 99
+    mov ah, 99
     mov al, 1
 
-    ; JG/JLE 계열은 "부호 있는(signed)" 비교 점프
-    ; bl > al 이면 GREATER로, 아니면 NOT_GREATER로
-    cmp bl, al
+    ; JG/JLE 계열은 SIGNED 값 비교 점프
+    ; ah > al 이면 GREATER로, 아니면 NOT_GREATER로
+    cmp ah, al
     jg  GREATER
 
 NOT_GREATER:
@@ -37,10 +37,11 @@ GREATER:
     mov ah, 02h
     mov dl, 3Eh        ; '>'
     int 21h
+    ;jmp DONE          ; 예제에는 있지만 어짜피 DONE으로 이동하기 떄문에 주석터리
 
 DONE:
-    mov ax, 4C00h
+    mov ax, 4C00h      ; AL값이 0이 아니기 때문에 AX를 전체다 바꿈
     int 21h
 
-main ENDP
-END main
+MAIN ENDP
+END MAIN

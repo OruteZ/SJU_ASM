@@ -15,7 +15,7 @@ MAIN PROC
     mov ax, @data
     mov ds, ax
 
-    ; [핵심] AH=02h : DL 문자 1개 출력
+    ; 02H DL 문자 1개 출력
     mov ah, 02h
 
     mov dl, 41h      ; 시작 문자 'A'
@@ -24,7 +24,7 @@ MAIN PROC
 PRINT_LOOP:
     int 21h           ; DL 출력
     inc dl            ; 다음 문자로
-    loop PRINT_LOOP   ; CX-- 후, CX!=0이면 점프
+    LOOP PRINT_LOOP   ; CX-- 후, CX!=0이면 점프
 
     ; 종료
     mov ax, 4C00h

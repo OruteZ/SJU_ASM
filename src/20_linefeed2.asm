@@ -2,14 +2,13 @@
 ; 학번 : 21011759
 ; 이름 : 오재오
 ;
-; [Q3-2] 위 출력을 LOOP로 작성 (문자 배열 + 0Ah 포함)
+; 위 출력을 LOOP로 작성 (문자 배열 + 0Ah 포함)
 ; =================
 
 .MODEL SMALL
 .STACK
 .DATA
-    msg     db "Oh",0Ah,"Jae",0Ah,"O"
-    MSG_LEN EQU ($ - msg)
+    MSG     db "Oh",0Ah,"Jae",0Ah,"O"
 
 .CODE
 MAIN PROC
@@ -17,14 +16,14 @@ MAIN PROC
     mov ds, ax
 
     mov ah, 02h
-    mov si, offset msg
-    mov cx, MSG_LEN
+    mov si, offset MSG
+    mov cx, 8 ;OH(2) + 0Ah(1) + Jae(3) + 0Ah(1) + O(1) = 8
 
 PRINT_LOOP:
     mov dl, [si]
     int 21h
     inc si
-    loop PRINT_LOOP
+    LOOP PRINT_LOOP
 
     mov ax, 4C00h
     int 21h
